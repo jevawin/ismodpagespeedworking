@@ -332,7 +332,9 @@
 					var
 						$domain = encodeURI($('#domain').val()),
 						$ua = encodeURI($('#ua').val()),
-						$gadmn = ($('#private').prop('checked')) ? 'Private' : $domain;
+						$gadmn = ($('#private').prop('checked')) ? 'Private' : $domain,
+						//$service = 'http://localhost:8080/';
+						$service = 'https://ismodpagespeedworking-smyinftyli.now.sh/';
 
 					// GA check
 					ga('send', 'event', 'Check', 'Submit', $gadmn);
@@ -351,7 +353,7 @@
 						.html('Checking...');
 
 					// Download headers from checked site - this loads handleResponse()
-					$.getScript('https://ismodpagespeedworking-fqereudjqk.now.sh/?url=' + $domain + '&ua=' + $ua)
+					$.getScript($service + '?url=' + $domain + '&ua=' + $ua)
 						.fail(function() {
 							// GA fail
 							ga('send', 'event', 'Check', 'Error', $gadmn);

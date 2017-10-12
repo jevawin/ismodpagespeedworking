@@ -13,6 +13,9 @@ function formatHeaders(sts, msg, hds) {
 }
 
 app.get('/', function(req, res) {
+  // Set MIME type to JavaScript
+  res.type('application/javascript');
+
   if (req.query['url'] === undefined || req.query['ua'] === undefined) {
     res.send('$.handleResponse(\'[-1]\');');
   } else {
